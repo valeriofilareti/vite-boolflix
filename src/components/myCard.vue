@@ -8,18 +8,33 @@
   </script>
 
 <template>
-  <h1>{{ movie.original_title }}</h1>
-  <h1>{{ movie.title }}</h1>
-  <p>{{ movie.overview }}</p>
-  <p>{{ movie.original_language }}</p>
+
+    <div class="card">
+      <span>{{ movie.original_title }}</span>
+      <span>{{ movie.title }}</span>
+      <span>{{ movie.original_language }}</span>
+      <span>{{ movie.vote_average }}</span>
+      <div class="movie-overview">
+        <p>{{ movie.overview }}</p>
+      </div>
+    </div>
+
 </template>
 
 <style scoped>
-
-body {
-  width: 100px;
-  height: 100px;
+.card {
+  width: 200px;
+  height: 300px;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+.movie-overview {
+  width: 100%;
+  height: 100px;
+  overflow: auto;
 }
 
 </style>

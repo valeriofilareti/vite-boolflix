@@ -15,10 +15,17 @@
   </script>
 
 <template>
-  <myCard v-for="(movie, index) in store.resultArray" :movie="movie" :key="index" />
+  <div class="card-container">
+    <myCard v-for="(movie, index) in store.resultArray" :movie="movie" :key="index" />
+  </div>
 </template>
 
 
-<style>
-
+<style scoped>
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 </style>
