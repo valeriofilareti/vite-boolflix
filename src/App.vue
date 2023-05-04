@@ -25,7 +25,7 @@ export default {
       }
       })
       .then(result => {
-        store.resultArray = result.data
+        store.resultArray = result.data.results
         console.log(store.resultArray);
       })
     }

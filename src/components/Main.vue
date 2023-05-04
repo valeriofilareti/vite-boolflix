@@ -10,21 +10,12 @@
   },
   components: {
     myCard
-  },
-  props: {
-    title: String,
-    originalTitle: String,
-    language: String,
-    rate: String
   }
   }
   </script>
 
 <template>
-  <myCard
-    v-for="(movie, index) in store.resultArray" :key="index" 
-
-  />
+  <myCard v-for="(movie, index) in store.resultArray" :movie="movie" :key="index" />
 </template>
 
 

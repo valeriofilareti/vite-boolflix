@@ -1,11 +1,17 @@
   <script>
   export default {
-  name: 'myCard'
+  name: 'myCard',
+  props: {
+    movie: Object
+  }
   }
   </script>
 
 <template>
-  <h1>mycard</h1>
+  <h1>{{ movie.original_title }}</h1>
+  <h1>{{ movie.title }}</h1>
+  <p>{{ movie.overview }}</p>
+  <p>{{ movie.original_language }}</p>
 </template>
 
 <style scoped>
