@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { store } from "./data/store";
 import myHeader from './components/myHeader.vue';
+import Main from './components/Main.vue';
 export default {
   name: 'App',
   data() {
@@ -11,7 +12,8 @@ export default {
     }
   },
   components: {
-    myHeader
+    myHeader,
+    Main
   },
   methods: {
     getApi(){
@@ -23,17 +25,19 @@ export default {
       }
       })
       .then(result => {
-        console.log(result.data);
+        store.resultArray = result.data
+        console.log(store.resultArray);
       })
     }
   },
   mounted(){
-    this.getApi()
+    console.log(this.store.resultArray);
   }
 }
 </script>
 <template>
   <myHeader @search="getApi" />
+  <Main />
 </template>
 
 <style>
