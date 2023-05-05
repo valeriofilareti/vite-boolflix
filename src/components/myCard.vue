@@ -12,7 +12,11 @@
     <div class="card">
       <span>{{ movie.original_title }}</span>
       <span>{{ movie.title }}</span>
-      <span>{{ movie.original_language }}</span>
+      <div class="language">
+        <img v-if="movie.original_language === 'en'" src="../assets/img/en.png" alt="">
+        <img v-else-if="movie.original_language === 'it'" src="../assets/img/it.png" alt="">
+        <span v-else>{{ movie.original_language }}</span>
+      </div>
       <span>{{ movie.vote_average }}</span>
       <div class="movie-overview">
         <p>{{ movie.overview }}</p>
@@ -35,6 +39,14 @@
   width: 100%;
   height: 100px;
   overflow: auto;
+}
+.language {
+  height: 30px;
+  width: 30px;
+}
+
+.language > img {
+  width: 100%;
 }
 
 </style>

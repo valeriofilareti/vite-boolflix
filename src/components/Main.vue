@@ -16,7 +16,11 @@
 
 <template>
   <div class="card-container">
-    <myCard v-for="(movie, index) in store.resultArray" :movie="movie" :key="index" />
+    <myCard 
+    v-for="(movie, index) in store.resultArray" 
+    :movie="movie" 
+    :key="index" 
+    />
   </div>
 </template>
 
