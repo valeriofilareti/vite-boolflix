@@ -8,7 +8,13 @@ export default {
   name: 'App',
   data() {
     return {
-      store
+      store,
+      params: {
+        params: {
+          api_key: 'e99307154c6dfb0b4750f6603256716d',
+          language: 'it_IT',
+        }
+      }
     }
   },
   components: {
@@ -17,26 +23,34 @@ export default {
   },
   methods: {
     getApi(){
-      axios.get(store.apiUrl, {
-      params: {
-        api_key: 'e99307154c6dfb0b4750f6603256716d',
-        language: 'it_IT',
-        query: store.searchText
-      }
-      })
+      console.log(this.params);
+      axios.get(store.apiUrl + 'movie', this.params)
       .then(result => {
         store.resultArray = result.data.results
         console.log(store.resultArray);
+        
       })
+    },
+    getApiTv(){
+      axios.get(store.apiUrl + 'tv', this.params)
+      .then(result => {
+        store.resultArrayTv = result.data.results
+        console.log(store.resultArrayTv);
+      })
+    },
+    getApiAll(){
+      this.params.params.query = store.searchText;
+      this.getApi();
+      this.getApiTv();
     }
   },
   mounted(){
-    console.log(this.store.resultArray);
+    console.log(this.store.resultArrayTv);
   }
 }
 </script>
 <template>
-  <myHeader @search="getApi" />
+  <myHeader @search="getApiAll" />
   <Main />
 </template>
 

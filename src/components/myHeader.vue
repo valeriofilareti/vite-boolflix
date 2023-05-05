@@ -11,8 +11,10 @@
   </script>
 
 <template>
-  <h1>header</h1>
-  <input type="text" v-model="store.searchText" @keyup.enter="$emit('search')">
+  <div>
+    <h1>header</h1>
+    <input type="text" v-model="store.searchText" @keyup.enter="$emit('search')">
+  </div>
 </template>
 
 
