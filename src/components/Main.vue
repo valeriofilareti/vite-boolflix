@@ -39,7 +39,7 @@
 <style scoped>
   .card-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
   }
