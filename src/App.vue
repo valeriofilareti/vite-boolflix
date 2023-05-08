@@ -12,7 +12,7 @@ export default {
       params: {
         params: {
           api_key: 'e99307154c6dfb0b4750f6603256716d',
-          language: 'it_IT',
+          language: 'it-IT',
         }
       }
     }
@@ -23,19 +23,15 @@ export default {
   },
   methods: {
     getApi(){
-      console.log(this.params);
       axios.get(store.apiUrl + 'movie', this.params)
       .then(result => {
         store.resultArray = result.data.results
-        console.log(store.resultArray);
-        
       })
     },
     getApiTv(){
       axios.get(store.apiUrl + 'tv', this.params)
       .then(result => {
         store.resultArrayTv = result.data.results
-        console.log(store.resultArrayTv);
       })
     },
     getApiAll(){
@@ -45,7 +41,6 @@ export default {
     }
   },
   mounted(){
-    console.log(this.store.resultArrayTv);
   }
 }
 </script>
@@ -54,6 +49,9 @@ export default {
   <Main />
 </template>
 
-<style>
-
+<style lang="scss">
+@import './scss/main.scss';
+body {
+  background-color: black;
+}
 </style>

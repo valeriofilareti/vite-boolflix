@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+.card {
+  width: 230px;
+  height: 340px;
+  border: 2px solid white;
+  flex-direction: column;
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, .8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.card:hover .overlay {
+  display: flex;
+  transition: 1s;
+}
+.movie-overview {
+  width: 100%;
+  height: 100px;
+  overflow: auto;
+}
+.language {
+  height: 30px;
+  width: 30px;
+}
+
+.language > img {
+  width: 100%;
+}
