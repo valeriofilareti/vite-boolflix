@@ -5,6 +5,6 @@ export const store = reactive({
   searchText: '',
   imgUrl: 'https://image.tmdb.org/t/p/w780',
   resultArray: [],
-  resultArrayTv: []
-
+  resultArrayTv: [],
+  genre: 'all'
 })

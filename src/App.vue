@@ -36,8 +36,18 @@ export default {
     },
     getApiAll(){
       this.params.params.query = store.searchText;
-      this.getApi();
-      this.getApiTv();
+      if(store.genre === 'all'){
+        this.getApi();
+        this.getApiTv();
+        this.params.params.query = '';
+      }else if(store.genre === 'movies'){
+        this.getApi();
+      }else if(store.genre === 'tvseries'){
+        this.getApiTv();
+      }
+    },
+    genreChange(){
+      console.log(store.genre);
     }
   },
   mounted(){
@@ -45,7 +55,7 @@ export default {
 }
 </script>
 <template>
-  <myHeader @search="getApiAll" />
+  <myHeader @search="getApiAll" @gen-change="genreChange" />
   <Main />
 </template>
 

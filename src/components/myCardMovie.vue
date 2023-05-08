@@ -16,7 +16,7 @@ export default {
 
 <template>
 
-    <div :style="{ backgroundImage: `url(${store.imgUrl + movie.poster_path})` }" class="card">
+    <div :style="{ backgroundImage: movie.poster_path? `url(${store.imgUrl + movie.poster_path})` : 'url(\'../src/assets/img/Image_not_available.png\')'}" class="card">
       
       <div class="overlay">
         <h2>{{ movie.title }}</h2>

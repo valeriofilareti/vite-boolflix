@@ -15,7 +15,12 @@
     <div class="logo">
       <img src="../assets/img/logo-boolflix.png" alt="">
     </div>
-    <div class="search-bar d-flex align-center">
+    <div class="inputs d-flex align-center">
+      <select id="genres" @change="$emit('gen-change')" v-model="store.genre">
+        <option value="all">All</option>
+        <option value="movies">Movies</option>
+        <option value="tvseries">Tv Series</option>
+      </select>
       <input type="text" placeholder="Search something..." v-model="store.searchText" @keyup.enter="$emit('search')">
     </div>
   </div>
@@ -25,7 +30,7 @@
 <style lang="scss" scoped>
 @use '../scss/general/utilities' as *;
 .header {
-  padding: 30px;
+  padding: 20px;
   background-color: black;
 }
 .logo {
@@ -35,12 +40,13 @@
     width: 100%;
   }
 }
-.search-bar {
-  width: 200px;
+.inputs {
+  width: 300px;
   border-radius: 15px;
-  input {
+  input, select {
     height: 30px;
     width: 100%;
+    margin: 5px
   }
 }
 h1 {
