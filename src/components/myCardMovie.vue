@@ -19,14 +19,18 @@ export default {
     <div :style="{ backgroundImage: `url(${store.imgUrl + movie.poster_path})` }" class="card">
       
       <div class="overlay">
-        <span>{{ movie.title }}</span>
-        <span>{{ movie.original_title }}</span>
+        <h2>{{ movie.title }}</h2>
+        <h4>{{ movie.original_title }}</h4>
         <div class="language">
           <img v-if="movie.original_language === 'en'" src="../assets/img/en.png" alt="">
           <img v-else-if="movie.original_language === 'it'" src="../assets/img/it.png" alt="">
           <span v-else>{{ movie.original_language }}</span>
         </div>
-        <span>vote: {{ Math.round(movie.vote_average / 2) }}</span>
+        
+        <span>
+          <i v-for="(vote, index) in Math.round((movie.vote_average / 2))" :key="index" class="fa-solid fa-star"></i>
+          <i v-for="(vote, index) in 5 - Math.round((movie.vote_average / 2))" :key="index" class="fa-regular fa-star"></i>
+        </span>
         <div class="movie-overview">
           <p>{{ movie.overview }}</p>
         </div>
@@ -37,4 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../scss/general/utilities' as *;
+i {
+  color: yellow;
+}
 </style>
